@@ -29,7 +29,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "1234",
-    database: "xppoints"
+    database: "points"
 });
 
 con.connect(err => {
@@ -52,13 +52,13 @@ bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-    con.query(`SELECT * FROM xppoints WHERE id = '${message.author.id}'`, (err, rows) =>{ //get points from database
+    con.query(`SELECT * FROM points WHERE id = '${message.author.id}'`, (err, rows) =>{ //get points from database
         if(err) throw err;
 
         let sql;
 
         if(rows.length < 1) {
-            sql = `INSERT INTO xppoints (id, points) VALUES ('${message.author.id}', ${generatePoints()})`
+            sql = `INSERT INTO points (id, points) VALUES ('${message.author.id}', ${generatePoints()})`
         } else { //previous points found
             let points = rows[0].points;
 
