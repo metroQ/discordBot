@@ -41,9 +41,31 @@ bot.on("ready", () =>{
     console.log(bot.commands);
 });
 
+function generatePoints(){
+    let min = 1
+    let max = 10
+
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+
+}
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
+
+    con.query(`SELECT * FROM xppoints WHERE id = '${message.author.id}'`, (err, rows) =>{ //get points from database
+        if(err) throw err;
+
+        let sql;
+
+        if(rows.length < 1) {
+            sql = `INSERT INTO points (id, points) VALUES ('${message.author.id}', ${generatePoints()})`
+        } else { //previous points found
+            let points = rows[0].points;
+
+            sql  = `UPDATE points SET points = ${points + generatePoints()} WHERE id = '${message.author.id}'`;
+        }
+        con.query(sql, console.log);
+    });
 
     let messageArray = message.content.split(/\s+/g);
     let command = messageArray[0];
