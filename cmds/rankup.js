@@ -21,7 +21,8 @@ module.exports.run = async (bot, message, args) => {
     let toPromote = message.author;
 
     if(message.member.roles.has(level0.id)){ //level 0
-
+        console.log(toPromote.id);
+        //console.log(con.query("SELECT * FROM points WHERE id = 155478460620341248"));
         con.query(`SELECT * FROM points WHERE id = '${toPromote.id}'`, (err, rows) =>{ //get points from database
         if(err) throw err;
 
@@ -32,13 +33,14 @@ module.exports.run = async (bot, message, args) => {
             let points = rows[0].points;
             if(points > 100){ //has more than 100 points
                 sql  = `UPDATE points SET points = ${points - 100} WHERE id = '${toPromote.id}'`; //subtract 100 points
-                toPromote.removeRole(level0); //change their roles
-                toPromote.addRole(level1); //change their roles
+                toPromote.removeRole(level0.id); //change their roles
+                toPromote.addRole(level1.id); //change their roles
+                con.query(sql, console.log);
             }
 
             
         }
-        con.query(sql, console.log);
+        
     });
 
        
