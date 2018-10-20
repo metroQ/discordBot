@@ -58,7 +58,7 @@ bot.on("message", async message => {
         let sql;
 
         if(rows.length < 1) {
-            sql = `INSERT INTO points (id, points) VALUES ('${message.author.id}', ${generatePoints()})`
+            sql = `INSERT INTO xppoints (id, points) VALUES ('${message.author.id}', ${generatePoints()})`
         } else { //previous points found
             let points = rows[0].points;
 
