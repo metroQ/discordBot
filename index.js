@@ -29,13 +29,13 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "1234",
-    databse: "xppoints"
+    dataabse: "xppoints"
 });
 
-con.connect(err =>{
+con.connect(err => {
     if(err) throw err;
-    console.log("CONNECTED TO DATABASE");
-});
+    console.log("Connection to database successful.");
+})
 bot.on("ready", () =>{
     console.log(`${bot.user.username} up and running...`);
     console.log(bot.commands);
