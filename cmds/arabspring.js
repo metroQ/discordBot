@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     let embededImage = new Discord.RichEmbed()
         .attachFile("./arabDirectory/%s", num);
-    	.setFooter("This command is still in development.")
+    	.setFooter("This command is still in development.");
     message.channel.send({embededImage: embededImage}) //send it yo
 }
 module.exports.help = {
