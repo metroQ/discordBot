@@ -1,7 +1,8 @@
+const Discord = module.require("discord.js");
 module.exports.run = async (bot, message, args) => {
     let target = message.mentions.users.first() || message.author;
-    let newMes = message.toString();
-    let arr = newMes.split(" ");
+    let newMes = message.toString(); //make the discord message a string
+    let arr = newMes.split(" "); 
     let num = arr[1];
 
     let embededImage = new Discord.RichEmbed()
