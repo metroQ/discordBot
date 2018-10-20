@@ -1,3 +1,4 @@
+const Discord = module.require("discord.js");
 module.exports.run =async (bot, message, args) => {
 	if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission to release the target.");
 

@@ -1,7 +1,7 @@
 const botSettings = require("./botsettings.json") //POINTS SYSTEM WORKING
 const Discord = require(`discord.js`);
-const fs = require("fs")
-;const mysql = require("mysql");
+const fs = require("fs");
+const mysql = require("mysql");
 
 const prefix = botSettings.prefix;
 

@@ -1,4 +1,5 @@
 //Punish command, use on liam
+const Discord = module.require("discord.js");
 module.exports.run = async (bot, message, args) => {
 	if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You can't punish you wanna-be.");
 
