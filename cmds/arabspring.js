@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let num = arr[1];
 
     let embededImage = new Discord.RichEmbed()
-        .attatchFile("./arabDirectory/%s", num);
+        .attachFile("./arabDirectory/%s", num);
     
     message.channel.send({embededImage: embededImage}) //send it yo
 }
