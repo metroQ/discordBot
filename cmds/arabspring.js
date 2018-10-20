@@ -1,14 +1,14 @@
-const Discord = module.require("discord.js");
+/*const Discord = module.require("discord.js");
 module.exports.run = async (bot, message, args) => {
     let target = message.mentions.users.first() || message.author;
     let newMes = message.toString(); //make the discord message a string
     let arr = newMes.split(" "); 
     let num = arr[1];
 
-    let embededImage = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
         .attachFile("./arabDirectory/%s", num);
-    	.setFooter("This command is still in development.");
-    message.channel.send({embededImage: embededImage}) //send it yo
+    	
+    message.channel.send({embed: embed}) //send it yo
 }
 module.exports.help = {
     name: "arabspring"
