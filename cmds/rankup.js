@@ -1,4 +1,14 @@
-const Discord = module.require("discord.js");
+const Discord = module.require("discord.js")
+
+const mysql = require("mysql");
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "1234",
+    database: "points"
+});
+
 module.exports.run = async (bot, message, args) => {
 
     let level0 = message.guild.roles.find(r => r.name === "Level 0");
@@ -11,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
     let toPromote = message.author;
 
     if(message.member.roles.has(level0.id)){ //level 0
-        
+
         con.query(`SELECT * FROM points WHERE id = '${toPromote.id}'`, (err, rows) =>{ //get points from database
         if(err) throw err;
 
