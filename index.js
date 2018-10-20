@@ -29,7 +29,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "1234",
-    dataabse: "xppoints"
+    database: "xppoints"
 });
 
 con.connect(err => {
