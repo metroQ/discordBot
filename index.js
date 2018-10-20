@@ -1,6 +1,7 @@
 const botSettings = require("./botsettings.json")
 const Discord = require(`discord.js`);
 const fs = require("fs");
+const mysql = require("mysql");
 
 const prefix = botSettings.prefix;
 
@@ -24,7 +25,17 @@ fs.readdir("./cmds/", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "1234",
+    databse: "xppoints"
+});
 
+con.connect(err =>{
+    if(err) throw err;
+    console.log("CONNECTED TO DATABASE");
+});
 bot.on("ready", () =>{
     console.log(`${bot.user.username} up and running...`);
     console.log(bot.commands);
