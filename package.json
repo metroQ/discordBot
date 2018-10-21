@@ -21,6 +21,7 @@
     "discord.js": "^11.4.2",
     "errors.js": "^0.4.0",
     "mysql": "^2.16.0",
+    "snekfetch": "^4.0.4",
     "util": "^0.11.0",
     "utils.js": "^1.0.1"
   }
